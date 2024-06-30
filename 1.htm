@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>問答頁面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .question-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .question {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            margin-bottom: 0;
+        }
+        .answer-container {
+            padding: 0 15px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        .answer-container.show {
+            max-height: 1000px; /* 調整這個值以適應你的最長答案 */
+            padding: 15px;
+        }
+        .answer {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .answer-container.show .answer {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>第 一 章：英文文法的最基本規則</h1>
+        <h2>練 習 一<h2>
+    </header>
+<style>
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 8px;
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+    font-size: 28px;
+}
+
+header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+    opacity: 0.8;
+}
+</style>    
+    <div class="container">
+        以下的句子都有錯，請將正確的句子寫出來：
+        <div class="question-card">
+            <h2 class="question">
+                1.＊ I am like my parent.
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        原句: "I am like my parent."<br/>
+                        正確句: "I love my parents."<br/>
+                        <br/>
+                        這裡有幾個需要更正的地方：<br/>
+                        <br/>
+                        1. 動詞使用：
+                           - 原句使用 "am like"，這個結構通常用來表示相似性，而不是感情。<br/>
+                           - 正確句使用 "love"，直接表達了對父母的感情。<br/>
+                           <br/>
+                        2. 名詞的單複數：<br/>
+                           - 原句用的是單數 "parent"。<br/>
+                           - 正確句用的是複數 "parents"，這更常見，因為通常我們談論的是雙親（父親和母親）。<br/>
+                           <br/>
+                        3. 表達的意思：<br/>
+                           - 原句 "I am like my parent" 的意思是 "我像我的父親/母親"，表示相似性。<br/>
+                           - 正確句 "I love my parents" 表達的是對父母的愛，這可能是您想表達的真正意思。<br/>
+                           <br/>
+                        4. 語法結構：<br/>
+                           - "am like" 後面接名詞或代詞，用來比較相似性。<br/>
+                           - "love" 是及物動詞，後面直接接表示被愛對象的名詞或代詞。<br/>
+                           <br/>
+                        總之，原句和正確句表達的是完全不同的意思。如果您的目的是表達對父母的愛，那麼 "I love my parents" 確實是正確的表達方式。這個句子既在語法上正確，又清晰地表達了您對父母的感情。
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                2.＊ He is loves his teacher.<br/>
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        原句: "He is loves his teacher."<br/>
+                        正確句: "He loves his teacher."<br/>
+                        <br/>
+                        錯誤在於不當使用了 "is"。這裡的原因是:<br/>
+                        <br/>
+                        1. 主語動詞一致性: <br/>
+                           "He" 是第三人稱單數主語。在簡單現在時中,第三人稱單數的動詞需要加 "-s" 或 "-es"。<br/>
+                           <br/>
+                        2. 動詞形式:<br/>
+                           "loves" 已經是正確的第三人稱單數形式,不需要再加 "is"。<br/>
+                           <br/>
+                        3. 簡單現在時vs現在進行時:<br/>
+                           如果要表達一般性的事實或習慣,我們使用簡單現在時。"He loves his teacher" 就是簡單現在時,表達他愛他的老師這個一般事實。<br/>
+                           <br/>
+                        4. "is" 的正確用法:<br/>
+                           "is" 通常用於構成現在進行時(例如 "He is teaching")或被動語態(例如 "He is loved by his students"),而不是用在這種簡單陳述句中。<br/>
+                           <br/>
+                        總之,正確的句子應該是 "He loves his teacher",這樣既符合語法規則,又清晰地表達了意思。
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                3.＊ He keeps swim every day.<br/>
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        原句: "He keeps swim every day"<br/>
+                        正確句: "He keeps swimming every day."<br/>
+                        <br/>
+                        這裡的主要錯誤涉及到動詞 "keep" 的正確用法。解釋如下：<br/>
+                        <br/>
+                        1. "Keep" 的用法：<br/>
+                           - 當 "keep" 用來表示持續進行某個動作時，它後面應該跟一個動名詞（-ing形式），而不是動詞原形。<br/>
+                           <br/>
+                        2. 動名詞 vs. 動詞原形：<br/>
+                           - 原句中使用了 "swim"，這是動詞的原形。<br/>
+                           - 正確句使用了 "swimming"，這是 "swim" 的動名詞形式。<br/>
+                           <br/>
+                        3. 語法規則：<br/>
+                           - "keep + 動名詞" 這個結構用來表示某個動作持續進行或重複發生。<br/>
+                           - 其他類似的例子包括：keep working（持續工作），keep trying（不斷嘗試）等。<br/>
+                           <br/>
+                        4. 意思表達：<br/>
+                           - "He keeps swimming every day" 表達的是他每天持續游泳的習慣或行為。<br/>
+                           - 這個句子強調的是動作的持續性和規律性。<br/>
+                           <br/>
+                        5. 其他正確的替代表達：<br/>
+                           - 如果想用不同的方式表達同樣的意思，可以說：<br/>
+                             "He swims every day." （他每天游泳。）<br/>
+                             "He continues to swim every day." （他繼續每天游泳。）<br/>
+                             <br/>
+                        總之，使用 "keep + 動名詞" 的結構可以強調某個動作的持續性。在這個例子中，"He keeps swimming every day" 正確地表達了這個人持續保持每天游泳的習慣。
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                4.＊ He wants drink a glass of water.
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        您指出的修正是正確的。讓我解釋為什麼原句有錯誤，以及為什麼修正後的句子是正確的：<br/>
+                        <br/>
+                        原句: "He wants drink a glass of water."<br/>
+                        正確句: "He wants to drink a glass of water."<br/>
+                        <br/>
+                        這裡的主要錯誤涉及到動詞 "want" 的正確用法。解釋如下：<br/>
+                        <br/>
+                        1. "Want" 的用法：<br/>
+                           - 當 "want" 後面接另一個動詞時，需要使用不定式形式（to + 動詞原形）。<br/>
+                           <br/>
+                        2. 不定式：<br/>
+                           - 不定式由 "to" 加上動詞原形組成。<br/>
+                           - 在這個句子中，正確的形式是 "to drink"。<br/>
+                           <br/>
+                        3. 語法規則：<br/>
+                           - "want + to + 動詞原形" 這個結構用來表達想要做某事。<br/>
+                           - 這是英語中常見的動詞模式之一。<br/>
+                           <br/>
+                        4. 其他類似的例子：<br/>
+                           - He wants to eat. (他想吃東西。)<br/>
+                           - She wants to sleep. (她想睡覺。)<br/>
+                           - They want to go home. (他們想回家。)<br/>
+                           <br/>
+                        5. 意思表達：
+                           - "He wants to drink a glass of water" 清楚地表達了這個人想要喝一杯水的願望。<br/>
+                           <br/>
+                        6. 注意事項：<br/>
+                           - 有些動詞（如 like, love, hate）可以接動名詞或不定式，但 "want" 幾乎總是接不定式。<br/>
+                           <br/>
+                        總之，使用 "want + to + 動詞原形" 的結構是表達想要做某事的正確方式。在這個例子中，"He wants to drink a glass of water" 正確地表達了這個人想要喝一杯水的意願。
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                5.＊ He likes play violin.
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        原句: "He likes play violin."<br/>
+                        正確句: "He likes playing the violin."<br/>
+                        <br/>
+                        這裡有幾個需要更正的地方：<br/>
+                        <br/>1. 動詞 "like" 的用法：<br/>
+                           - 當 "like" 後面接另一個動詞時，通常使用動名詞（-ing 形式）。<br/>
+                              - 原句中直接使用了動詞原形 "play"，這是不正確的。<br/>
+                              <br/>
+                              2. 動名詞的使用：<br/>
+                               - 正確句使用了 "playing"，這是 "play" 的動名詞形式。<br/> 
+                                 - "like + 動名詞" 表示喜歡做某事。<br/>
+                                 <br/>
+                                 3. 冠詞的使用：<br/> 
+                                   - 原句中缺少了定冠詞 "the"。<br/>  
+                                    - 當談論樂器時，通常需要使用定冠詞 "the"。<br/>
+                                    <br/>
+                                    4. 完整的表達：<br/>  
+                                     - "playing the violin" 作為一個整體，表示"演奏小提琴"這個活動。<br/>
+                                     <br/>
+                                     5. 其他可能的正確形式：<br/>
+                                        - "He likes to play the violin." 也是正確的，使用不定式形式。<br/>  
+                                         - 但 "likes playing" 更常用，更自然地表達喜好。<br/>
+                                         <br/>6. 語法規則：<br/> 
+                                           - 有些動詞（如 like, love, enjoy, hate）後面可以接動名詞或不定式，但動名詞更為常見。<br/>
+                                           <br/>
+                                           總之，"He likes playing the violin" 是正確的表達方式，它使用了適當的語法結構（like + 動名詞），並包含了必要的冠詞。這個句子準確地表達了這個人喜歡演奏小提琴這一事實。
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                6.＊ Jack do not love mathematics.
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        原句: "Jack do not love mathematics."<br/>正確句: "Jack does not like mathematics."<br/><br/>這裡有幾個需要更正的地方：<br/><br/>1. 主謂一致：<br/>   - 原句使用了 "do not"，但 "Jack" 是第三人稱單數。<br/>   - 對於第三人稱單數，我們應該使用 "does not"。<br/><br/>2. 動詞選擇：<br/>   - 原句使用了 "love"，而修正後的句子使用了 "like"。<br/>   - 雖然 "love" 在語法上不算錯誤，但 "like" 在表達對學科的喜好時更為常見和中性。<br/><br/>3. 否定形式：<br/>   - 正確的否定形式是 "does not" 或其縮寫 "doesn't"。<br/><br/>4. 第三人稱單數規則：<br/>   - 在簡單現在時中，第三人稱單數（he, she, it, 或單數名詞如 Jack）的動詞需要加 "-s" 或 "-es"。<br/>   - 在否定句中，這個規則體現在助動詞 "does" 上，而不是主要動詞上。<br/><br/>5. 主要動詞的形式：<br/>   - 在 "does not" 之後，主要動詞應該使用原形，而不是第三人稱單數形式。<br/><br/>6. 表達的自然性：<br/>   - "Jack does not like mathematics" 比 "Jack does not love mathematics" 更自然，因為通常我們談論對學科的喜好時，使用 "like" 更為普遍。<br/><br/>總結來說，"Jack does not like mathematics" 是正確的，因為它遵循了第三人稱單數的語法規則，使用了更自然的動詞選擇，並正確地構建了否定句。這個句子準確地表達了 Jack 不喜歡數學這一事實。
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                7.＊ Mary hate singing.
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        原句: "Mary hate singing."<br/>正確句: "Mary hates singing."<br/><br/>這裡的主要錯誤涉及到簡單現在時中的第三人稱單數規則。解釋如下：<br/><br/>1. 主謂一致：<br/>   - "Mary" 是第三人稱單數主語。<br/>   - 在簡單現在時中，第三人稱單數的動詞需要加 "-s" 或 "-es"。<br/><br/>2. 動詞變化：<br/>   - 原句中的 "hate" 是動詞的原形。<br/>   - 正確的形式應該是 "hates"，即在動詞 "hate" 的詞尾加上 "-s"。<br/><br/>3. 簡單現在時規則：<br/>   - 對於 he, she, it, 以及單數名詞（如 Mary），動詞需要變化。<br/>   - 這個規則適用於所有的動詞，除了情態動詞（如 can, must）和助動詞 be 的特殊形式（is）。<br/><br/>4. 其他例子：<br/>   - She likes (不是 like) coffee.<br/>   - He plays (不是 play) football.<br/>   - It rains (不是 rain) a lot in Seattle.<br/><br/>5. 動名詞的使用：<br/>   - "singing" 是動名詞，用作 "hates" 的賓語，這部分是正確的。<br/><br/>6. 整體意思：<br/>   - "Mary hates singing" 正確地表達了 Mary 不喜歡唱歌這一事實。<br/><br/>總之，"Mary hates singing" 是正確的表達方式，因為它遵循了簡單現在時中第三人稱單數的語法規則。這個小小的 "-s" 對於保持句子的語法正確性至關重要。這個規則雖然簡單，但對許多英語學習者來說常常是一個挑戰，需要特別注意和練習。
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                8.＊ My mother cook very good food.
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        原句: "My mother cook very good food."<br/>正確句: "My mother cooks very good food."<br/><br/>這裡的錯誤同樣涉及到簡單現在時中的第三人稱單數規則。具體解釋如下：<br/><br/>1. 主謂一致：<br/>   - "My mother" 是第三人稱單數主語。<br/>   - 在簡單現在時中，第三人稱單數的動詞需要加 "-s" 或 "-es"。<br/><br/>2. 動詞變化：<br/>   - 原句中的 "cook" 是動詵的原形。<br/>   - 正確的形式應該是 "cooks"，即在動詞 "cook" 的詞尾加上 "-s"。<br/><br/>3. 簡單現在時規則：<br/>   - 對於 he, she, it, 以及單數名詞（如 my mother），動詞需要變化。<br/>   - 這個規則適用於大多數動詞，除了一些特殊情況（如情態動詞）。<br/><br/>4. 其他例子：<br/>   - He works (不是 work) hard.<br/>   - She reads (不是 read) a lot.<br/>   - The dog barks (不是 bark) at night.<br/><br/>5. 整體意思：<br/>   - "My mother cooks very good food" 正確地表達了您母親烹飪美味食物的能力。<br/><br/>6. 注意事項：<br/>   - 這個規則適用於肯定句。在否定句和疑問句中，主要動詞保持原形，而 "does" 承擔了第三人稱單數的標記（例如：Does she cook well?）。<br/><br/>總之，"My mother cooks very good food" 是正確的表達方式，因為它遵循了簡單現在時中第三人稱單數的語法規則。這個 "-s" 的添加看似簡單，但確實是英語語法中一個重要的細節，反映了主語和動詞之間的一致性。這個規則需要通過大量練習才能熟練掌握，因為它不同於許多其他語言的語法結構。
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                9.＊ He want me to see him tomorrow.
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        原句: "He want me to see him tomorrow."<br/>正確句: "He wants me to see him tomorrow."<br/><br/>這個錯誤再次涉及到簡單現在時中的第三人稱單數規則。具體解釋如下：<br/><br/>1. 主謂一致：<br/>   - "He" 是第三人稱單數主語。<br/>   - 在簡單現在時中，第三人稱單數的動詞需要加 "-s" 或 "-es"。<br/><br/>2. 動詞變化：<br/>   - 原句中的 "want" 是動詞的原形。<br/>   - 正確的形式應該是 "wants"，即在動詞 "want" 的詞尾加上 "-s"。<br/><br/>3. 簡單現在時規則：<br/>   - 對於 he, she, it, 以及單數名詞，動詞需要變化。<br/>   - 這個規則適用於所有常規動詞，不論句子的其餘部分如何。<br/><br/>4. 複雜句結構：<br/>   - 即使句子包含不定式（to see），主要動詞（want）仍然需要遵循第三人稱單數規則。<br/><br/>5. 其他例子：<br/>   - She needs (不是 need) to study more.<br/>   - It seems (不是 seem) to be raining.<br/>   - The teacher expects (不是 expect) us to finish our homework.<br/><br/>6. 整體意思：<br/>   - "He wants me to see him tomorrow" 正確地表達了他希望我明天見他的意願。<br/><br/>7. 注意事項：<br/>   - 在這種結構中（want someone to do something），主要動詞（want）需要根據主語變化，而不定式（to see）保持不?。<br/><br/>總之，"He wants me to see him tomorrow" 是正確的表達方式，因為它遵循了簡單現在時中第三人稱單數的語法規則。這個規則在各種句子結構中都適用，包括像這樣帶有不定式的複雜句。正確使用這個規則可以提高英語表達的准確性和流?性。
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                10.＊ He not knows my name.
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        原句: "He not knows my name."<br/>正確句: "He does not know my name."<br/><br/>這個錯誤涉及到英語中否定句的正確構造方式。具體解釋如下：<br/><br/>1. 否定句的構造：<br/>   - 在簡單現在時的否定句中，我們使用助動詞 "do" 的適當形式（在這種情況下是 "does"）加上 "not"，而不是直接在主要動詞前加 "not"。<br/><br/>2. 助動詞的使用：<br/>   - 對於第三人稱單數（he, she, it），我們使用 "does not" 或其縮寫形式 "doesn't"。<br/>   - 其他人稱則使用 "do not" 或 "don't"。<br/><br/>3. 主要動詞的形式：<br/>   - 在使用 "does not" 後，主要動詞應該使用原形，而不是第三人稱單數形式。<br/>   - 因此，我們使用 "know" 而不是 "knows"。<br/><br/>4. 語序：<br/>   - 否定詞 "not" 應該放在助動詞 "does" 之後，而不是直接放在主要動詞前。<br/><br/>5. 其他例子：<br/>   - She does not like coffee. (不是 She not likes coffee.)<br/>   - It does not rain often here. (不是 It not rains often here.)<br/>   - The dog does not bark at night. (不是 The dog not barks at night.)<br/><br/>6. 整體意思：<br/>   - "He does not know my name" 正確地表達了他不知道你的名字這一事實。<br/><br/>7. 注意事項：<br/>   - 在問句中，我們也使用類似的結構：Does he know your name?<br/><br/>總之，"He does not know my name" 是正確的表達方式，因為它遵循了英語否定句的正確構造規則。這個規則要求使用適當的助動詞（在這裡是 does），將 "not" 放在助動詞之後，並保持主要動詞的原形。這種結構在英語中非常重要，因為它適用於大多數的簡單現在時否定句。                   
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                11.＊ I not like you.
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        原句: "I not like you."<br/>正確句: "I do not like you."<br/><br/>這個錯誤同樣涉及到英語中否定句的正確構造方式。具體解釋如下：<br/><br/>1. 否定句的構造：<br/>   - 在簡單現在時的否定句中，我們需要使用助動詞 "do" 加上 "not"，而不是直接在主要動詞前加 "not"。<br/><br/>2. 助動詞的使用：<br/>   - 對於第一人稱（I）、第二人稱（you）和第三人稱複數（they），我們使用 "do not" 或其縮寫形式 "don't"。<br/><br/>3. 主要動詞的形式：<br/>   - 在使用 "do not" 後，主要動詞應該保持原形。<br/>   - 因此，我們使用 "like" 而不是 "likes" 或其他形式。<br/><br/>4. 語序：<br/>   - 否定詞 "not" 應該放在助動詞 "do" 之後，而不是直接放在主要動詞前。<br/><br/>5. 其他例子：<br/>   - You do not understand. (不是 You not understand.)<br/>   - They do not work here. (不是 They not work here.)<br/>   - We do not eat meat. (不是 We not eat meat.)<br/><br/>6. 整體意思：<br/>   - "I do not like you" 正確地表達了"我不喜歡你"這個意思。<br/><br/>7. 注意事項：<br/>   - 這個結構也可以用縮寫形式："I don't like you."<br/>   - 在問句中，我們也使用類似的結構：Do you like me?<br/><br/>總之，"I do not like you" 是正確的表達方式，因為它遵循了英語否定句的正確構造規則。這個規則要求使用適當的助動詞（在這裡是 do），將 "not" 放在助動詞之後，並保持主要動詞的原形。這種結構在英語中非常重要，因為它適用於大多數的簡單現在時否定句，除了使用 be 動詞和情態動詞的情況。正確掌握這個規則可以幫助您更準確地表達否定的意思。
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                12.＊ He not like swimming.
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        原句: "He not like swimming."<br/>正確句: "He does not like swimming."<br/><br/>這個錯誤涉及到英語中否定句的正確構造方式，特別是對第三人稱單數的處理。具體解釋如下：<br/><br/>1. 否定句的構造：<br/>   - 在簡單現在時的否定句中，我們需要使用助動詞加上 "not"，而不是直接在主要動詞前加 "not"。<br/><br/>2. 第三人稱單數的特殊處理：<br/>   - 對於第三人稱單數（he, she, it），我們使用 "does not" 或其縮寫形式 "doesn't"。<br/>   - 這與其他人稱使用 "do not" 不同。<br/><br/>3. 主要動詞的形式：<br/>   - 在使用 "does not" 後，主要動詞應該使用原形，而不是第三人稱單數形式。<br/>   - 因此，我們使用 "like" 而不是 "likes"。<br/><br/>4. 語序：<br/>   - 否定詞 "not" 應該放在助動詞 "does" 之後，而不是直接放在主要動詞前。<br/><br/>5. 其他例子：<br/>   - She does not eat meat. (不是 She not eat meat.)<br/>   - It does not rain often here. (不是 It not rain often here.)<br/>   - The dog does not bark at night. (不是 The dog not bark at night.)<br/><br/>6. 整體意思：<br/>   - "He does not like swimming" 正確地表達了"他不喜歡游泳"這個意思。<br/><br/>7. 注意事項：<br/>   - 這個結構也可以用縮寫形式："He doesn't like swimming."<br/>   - 在問句中，我們也使用類似的結構：Does he like swimming?<br/><br/>總之，"He does not like swimming" 是正確的表達方式，因為它遵循了英語否定句的正確構造規則，特別是對第三人稱單數的特殊處理。這個規則要求使用適當的助動詞（在這裡是 does），將 "not" 放在助動詞之後，並保持主要動詞的原形。這種結構在英語中非常重要，因為它適用於所有第三人稱單數的簡單現在時否定句。正確掌握這個規則可以幫助您更準確地表達否定的意思，特別是在談論第三人稱單數主語時。
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                13.＊ You not went home.
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        句子 “You not went home.” 和 “You did not go home.” 在語法和時態上存在顯著的不同。下面我會詳細解釋為什麼第二個句子是正確的，而第一個是錯誤的：<br/><br/>### 1. 時態和助動詞 (Tense and Auxiliary Verbs)<br/><br/>**“You not went home.”**<br/>- **錯誤原因**：這個句子在語法上是不正確的，因為在英語中，簡單過去時態的否定句需要使用助動詞 “do” 的過去式 “did”。<br/>- **詳細說明**：動詞 “went” 是 “go” 的過去式形式。在英語的簡單過去時態中，如果要構造否定句，必須使用助動詞 “did”，並且跟隨動詞的原形形式 “go”。因此，直接用 “not went” 來表示否定是錯誤的。<br/><br/>**“You did not go home.”**<br/>- **正確原因**：這個句子是正確的，因為它使用了助動詞 “did” 來構成否定句，同時保持了動詞 “go” 的原形。<br/>- **詳細說明**：英語中，構成簡單過去時的否定句的結構是：`主語 + did not + 動詞原形`。在這個結構中，助動詞 “did” 用來表達動詞的過去時態，而 “not” 表示否定。動詞本身需要保持原形，因為助動詞已經傳達了過去的時間信息。<br/><br/>### 2. 句子結構 (Sentence Structure)<br/><br/>- **否定形式**：在英語中，否定句需要在助動詞之後加上 “not”。在簡單過去時中，助動詞 “did” 用於所有人稱，因此正確的結構是 “did not” 後跟動詞的原形。<br/>  - 錯誤："You not went home."<br/>  - 正確："You did not go home."<br/>  <br/>- **助動詞的使用**：在英語的否定句和疑問句中，通常使用 “do” 的過去式 “did” 作為助動詞。助動詞 “did” 加上 “not” 形成 “did not”，後面接動詞的原形，這樣就可以保持動詞一致性和時態的正確表達。<br/><br/>### 3. 語法規則 (Grammar Rules)<br/><br/>在簡單過去時態中：<br/>- **肯定句**：主語 + 動詞的過去式 (例如 "You went home.")<br/>- **否定句**：主語 + did not + 動詞原形 (例如 "You did not go home.")<br/>- **疑問句**：Did + 主語 + 動詞原形？ (例如 "Did you go home?")<br/><br/>在這些規則中，否定句和疑問句都使用了助動詞 “did”，並且後面的動詞保持原形。這是因為助動詞已經表示了時態信息，動詞本身不需要再變化。<br/><br/>### 4. 舉例說明 (Examples)<br/><br/>以下是一些正確和錯誤的否定句對比：<br/>- **正確**："She did not eat breakfast."<br/>  - **解釋**：這裡的 “eat” 是動詞原形，助動詞 “did” 表示過去時態。<br/>- **錯誤**："She not ate breakfast."<br/>  - **解釋**：動詞 “ate” 是過去式，沒有使用助動詞來幫助構造否定句。<br/><br/>- **正確**： "They did not finish the project."<br/>  - **解釋**：動詞 “finish” 是原形，助動詞 “did” 表示過去時態。<br/>- **錯誤**： "They not finished the project."<br/>  - **解釋**：動詞 “finished” 是過去式，缺少助動詞來構造否定句。<br/><br/>### 總結 (Conclusion)<br/><br/>“You did not go home.” 是正確的，因為它遵循了英語中簡單過去時否定句的語法規則，使用了助動詞 “did” 來幫助動詞 “go” 保持原形。而 “You not went home.” 是錯誤的，因為它直接將過去時態的動詞 “went” 用於否定句中，沒有使用必要的助動詞來幫助構造否定句。
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+
+        <div class="question-card">
+            <h2 class="question">
+                
+            </h2>
+            <div class="answer-container">
+                <div class="answer">
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <button onclick="toggleAnswer(this)">顯示答案</button>
+        </div>
+    <script>
+        function toggleAnswer(button) {
+            var answerContainer = button.previousElementSibling;
+            answerContainer.classList.toggle('show');
+            button.textContent = answerContainer.classList.contains('show') ? '隱藏答案' : '顯示答案';
+        }
+    </script>
+</body>
+</html>
